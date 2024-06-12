@@ -1,0 +1,49 @@
+﻿<Window x:Class="GestionStock.SesionIniciada"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionStock"
+        mc:Ignorable="d"
+        Title="Sesión Iniciada" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Parte superior-->
+        <TextBlock Text="Gestión de Productos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+        <!-- Contenido -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- -->
+            <StackPanel Grid.Column="0" Margin="10">
+                <TextBlock Text="Nombre:" FontSize="16"/>
+                <TextBox x:Name="txtNombreProducto" Width="200" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Categoría:" FontSize="16"/>
+                <ComboBox x:Name="cbCategorias" Width="200" Margin="0,0,0,10" DisplayMemberPath="Nombre" SelectedValuePath="CategoriaId"/>
+
+                <TextBlock Text="Habilitado:" FontSize="16"/>
+                <CheckBox x:Name="chkHabilitadoProducto" Width="200" Margin="0,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <Button x:Name="btnAgregarProducto" Content="Agregar" Width="80" Click="btnAgregarProducto_Click"/>
+                    <Button x:Name="btnEditarProducto" Content="Editar" Width="80" Margin="10,0" Click="btnEditarProducto_Click"/>
+                    <Button x:Name="btnEliminarProducto" Content="Eliminar" Width="80" Click="btnEliminarProducto_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!--Lista de productos -->
+            <ListBox x:Name="lstProductos" Grid.Column="1" Margin="10" DisplayMemberPath="Nombre" SelectedValuePath="ProductoId" SelectionChanged="lstProductos_SelectionChanged"/>
+        </Grid>
+
+        <Button x:Name="BtnCerrarWinSesion" Content="Cerrar" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32" Width="103" Click="BtnCerrarWinSesion_Click" Margin="620,0,0,0"/>
+    </Grid>
+</Window>
